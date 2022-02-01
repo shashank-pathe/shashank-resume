@@ -142,10 +142,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (min-width: 992px) {
-  .imageshashank{
-    display: none;
-    visibility: hidden;
-  }
+ 
   #main {
     margin-left: 100px;
   }
@@ -192,10 +189,7 @@ h1, h2, h3, h4, h5, h6 {
   color: #45505b;
 }
 @media (min-width: 992px) {
-  .imageshashank{
-    display: none;
-    visibility: hidden;
-  }
+ 
   .nav-menu a, .nav-menu a:focus {
     width: 56px;
   }
@@ -263,10 +257,7 @@ h1, h2, h3, h4, h5, h6 {
   position: relative;
 }
 @media (min-width: 992px) {
-  .imageshashank{
-    display: none;
-    visibility: hidden;
-  }
+  
   #hero {
     padding-left: 160px;
   }
@@ -312,10 +303,7 @@ h1, h2, h3, h4, h5, h6 {
   color: #0563bb;
 }
 @media (max-width: 992px) {
-  .imageshashank{
-    display: none;
-    visibility: hidden;
-  }
+ 
   #hero {
     text-align: center;
   }
