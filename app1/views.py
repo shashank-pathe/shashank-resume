@@ -30,7 +30,7 @@ def loginview(request):
             print(user)
             if user is not None:
                 auth.login(request,user)
-                return render(request,'admin.html')
+                return render(request,'loginview.html')
             else:
                 form= LoginForm()
                 context = {'form':form}
@@ -42,4 +42,8 @@ def loginview(request):
             context = {'form':form}     
             return render(request,"base.html",context)
     else:
-        return render(request,"index.html")    
+        form= LoginForm()
+        context = {'form':form}
+        messages.add_message(request, messages.WARNING, 'invalid credentials')     
+        return render(request,"loginview.html",context)
+            
