@@ -9,4 +9,10 @@ class Mail(models.Model):
     message = models.CharField(max_length=900)
 
 
+class Documents(models.Model):
+    cource= models.CharField(max_length=200)
+    univercity= models.CharField(max_length=200)
+    classs= models.CharField(max_length=200)
+    subject= models.CharField(max_length=200)
+    document= models.ImageField()
  

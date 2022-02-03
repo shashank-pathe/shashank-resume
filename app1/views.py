@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from django.contrib import messages
-from .models import Mail
+from .models import Mail,Documents
 from .forms import LoginForm
 from django.contrib import auth
 # Create your views hdef 
@@ -19,7 +19,7 @@ def homeview(request):
     return render(request,"index.html")         
    
 
-def Documents(request):
+def DocumentsView(request):
 
     if request.method=="POST":
         form=LoginForm(request.POST)
@@ -36,7 +36,7 @@ def Documents(request):
                     return redirect("admin/")
                 else:
                     messages.add_message(request, messages.INFO, 'logged in success')  
-                    return render(request,'documents.html')
+                    return redirect('/d')
             else:
                 form= LoginForm()
                 context = {'form':form}
@@ -56,6 +56,7 @@ def Documents(request):
     return render(request,"loginview.html",context)
             
 def Docs(request):
-    form=LoginForm()
-    context = {'form':form} 
-    return render(request,'log.html',context)
+    data= Documents.objects.all()
+    print(data)
+    context={'document':data}
+    return render(request,'documents.html',context)
