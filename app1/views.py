@@ -11,9 +11,9 @@ def homeview(request):
         mail = request.POST['email']
         subject = request.POST['subject']
         message = request.POST['message']
-        data = Mail(name=name,email=mail,subject=subject,message=message)
+        email = EmailMessage(subject, message, to=['shashankpathe9424@gmail.com'])
         
-        data.save()
+        email.send()
         messages.success(request, 'Your message has been sent. Thank you!')
         return redirect('/')       
     return render(request,"index.html")         
