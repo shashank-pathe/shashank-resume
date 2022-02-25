@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect
 from django.contrib import messages
 from .models import Mail,Documents
 from .forms import LoginForm
+from django.core.mail import EmailMessage
 from django.contrib import auth
 # Create your views hdef 
 
