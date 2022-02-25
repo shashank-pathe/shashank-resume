@@ -4,6 +4,10 @@ from .models import Mail,Documents
 from .forms import LoginForm
 from django.core.mail import EmailMessage
 from django.contrib import auth
+from django.core.mail import EmailMessage,EmailMultiAlternatives
+from django.template.loader import render_to_string
+from django.utils.html import  strip_tags
+from resume import settings
 # Create your views hdef 
 
 def homeview(request):
@@ -12,8 +16,12 @@ def homeview(request):
         mail = request.POST['email']
         subject = request.POST['subject']
         message = request.POST['message']
-        email = EmailMessage(subject, message, to=['shashankpathe9424@gmail.com'])
-        
+        html_comtent = render_to_string("log.html",{
+            "name":name,"mail":mail,"subject":subject,"message":message
+        })
+        text_content = strip_tags(html_comtent)
+        email = EmailMultiAlternatives("Hiring from my website",text_content,settings.EMAIL_HOST_USER, to=['shashankpathe9424@gmail.com'])
+        email.attach_alternative(html_comtent,"text/html")
         email.send()
         messages.success(request, 'Your message has been sent. Thank you!')
         return redirect('/')       
